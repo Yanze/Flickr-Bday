@@ -32,7 +32,7 @@
     NSDictionary *params = @{
                              @"method": @"flickr.photos.search",
                              @"api_key": self.apiKey,
-                             @"tags": @"birthday",
+                             @"tags": @"birthday party",
                              @"per_page": @"10",
                              @"format": @"json",
                              @"nojsoncallback": @"1",
