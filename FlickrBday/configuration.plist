@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FlickrAPI</key>
+	<dict/>
+	<key>Secret</key>
+	<string>ff61985c65577b09</string>
+	<key>Key</key>
+	<string>67c6b7d626e5c1e20cbc6dd50841641d</string>
+</dict>
+</plist>
