@@ -1,5 +1,8 @@
 ## Flickr API and AFNetworking library
 
-Coded in Objective-c
+
+This application demonstrates how to load images from Flickr asynchronously inside an UICollectionView.
+
+Coded in Objective-c.
 
 ![alt text](FlickrBday.gif  "FlickrBday")
