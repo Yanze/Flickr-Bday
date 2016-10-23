@@ -12,8 +12,10 @@
 
 @interface FlickrManager : NSObject
 
+@property (nonatomic, retain) NSString *FlickrManagerSigleton;
 @property (nonatomic, weak) id<FlickrManagerDelegate> delegate;
-- (void)getPhotos;
+- (void)getPhotosAsync;
++ (instancetype)sharedManager;
 
 @end
 

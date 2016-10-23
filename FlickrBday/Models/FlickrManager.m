@@ -17,7 +17,17 @@
 
 @implementation FlickrManager
 
-- (instancetype)init {
++ (instancetype)sharedManager {
+    static FlickrManager * sharedManager = nil;
+    static dispatch_once_t oncePredicate;
+    // This is the essence of the Singleton design pattern: the initializer is never called again once the class has been instantiated.
+    dispatch_once(&oncePredicate, ^{
+        sharedManager = [[FlickrManager alloc] initPrivate];
+    });
+    return sharedManager;
+}
+
+- (instancetype)initPrivate {
     self = [super init];
     if (self) {
         NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"configuration" ofType:@"plist"];
@@ -27,12 +37,17 @@
     return self;
 }
 
-- (void) getPhotos {
+
+- (instancetype)init {
+    @throw [NSException exceptionWithName:@"use sharedManager" reason:@"..." userInfo:nil];
+}
+
+- (void) getPhotosAsync {
     NSString *url = @"https://api.flickr.com/services/rest/";
     NSDictionary *params = @{
                              @"method": @"flickr.photos.search",
                              @"api_key": self.apiKey,
-                             @"tags": @"birthday party",
+                             @"tags": @"birthday",
                              @"per_page": @"10",
                              @"format": @"json",
                              @"nojsoncallback": @"1",
@@ -48,7 +63,6 @@
         
         if (self.delegate) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                
                 [self.delegate photosArrived: photos];
             });
         }

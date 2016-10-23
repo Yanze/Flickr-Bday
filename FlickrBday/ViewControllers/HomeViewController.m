@@ -71,9 +71,10 @@
 }
 
 - (void)setupFlickrManager {
-    FlickrManager *manager = [[FlickrManager alloc]init];
+//    FlickrManager *manager = [[FlickrManager alloc]init];
+    FlickrManager *manager = [FlickrManager sharedManager];
     manager.delegate = self;
-    [manager getPhotos];
+    [manager getPhotosAsync];
 }
 
 - (void)didReceiveMemoryWarning {
